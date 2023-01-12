@@ -1,0 +1,30 @@
+h1{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+body{
+    background-color: #F9FFA4
+}
+div{
+    background-color: #8CC0DE;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+.systerm{
+    padding-left: 625px;
+}
+.user{
+    padding-left: 625px;
+
+}
+.you-won{
+    background-color: #5EE6EB;
+}
+.game-over{
+    background-color: #FF6464;
+}
+.draw{
+    background-color: #E7FBBE;
+}

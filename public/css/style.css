@@ -1,0 +1,57 @@
+h1{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+body{
+    background-color: #F9FFA4
+}
+div{
+    background-color: #8CC0DE;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+}
+.score{
+    text-shadow:#8CC0DE ;
+    height:max-content
+}
+p{
+    text-align: center;}
+.systerm{
+    padding-left: 625px;
+}
+.user{
+    padding-left: 625px;
+
+}
+button{
+    margin:10px auto 10px 670px;
+}
+table{
+    margin-left: 600px;
+}
+.you-won{
+    background-color: #5EE6EB;
+}
+.game-over{
+    background-color: #FF6464;
+}
+.draw{
+    background-color: #E7FBBE;
+}
+@media(max-width:1028px){
+    .systerm{
+        padding-left: 200px;
+    }
+    .user{
+        padding-left: 200px;
+    
+    }
+    button{
+        margin:10px auto 10px 250px;
+    }
+    table{
+        margin-left: 200px;
+    }
+}

@@ -1,0 +1,118 @@
+<%- include('header'); -%>
+
+<h1>Press A key to start</i></h1>
+<div class="systerm">
+    <i class="rockS fa-solid fa-hand-back-fist fa-6x fa-fade"></i>
+    <i class="paperS fa-solid fa-hand fa-6x fa-fade"></i>
+    <i class="scissorS fa-solid fa-hand-scissors fa-6x  fa-rotate-90 fa-fade"></i>
+</div>
+<div class="user">
+
+    <i class="rock fa-solid fa-hand-back-fist fa-6x"></i>
+    <i class="paper fa-solid fa-hand fa-6x"></i>
+    <i class="scissor fa-solid fa-hand-scissors fa-6x  fa-rotate-90"></i>
+</div>
+<form action="/" method="post" >
+    <button name="result" value="-" type="submit" class="btn btn-primary"><p>Update Your score</p></button>
+</form>
+    <table>
+        <tr>
+            <td>
+                <div class="card text-white bg-info mb-3" style="max-width:18rem;width: 150.8px;height: 150px;">
+                    <div class="card-header"><p>YOU</p></div>
+                    <div class="card-body">
+                        <p class="score"><%=yourscore%></p>
+                    </div>
+                    </div>
+            </td>
+            <td>
+                <div class="card text-white bg-info mb-3" style="max-width:18rem;width: 150.8px;height: 150px;">
+                    <div class="card-header"><p>SYSTERM</p></div>
+                    <div class="card-body">
+                        <p class="score"><%=systermscore%></p>
+                    </div>
+                    </div>
+            </td>
+        </tr>
+        </table>
+
+        <script>
+            var choices=["rock","paper","scissor"];
+var sChoice;
+var UChoice;
+var started=false;
+document.addEventListener("keypress", function(){
+    if(!started)
+    {  
+      main();
+    }
+});
+function main(){
+    $(".rock").click(function(){
+        UChoice="rock";
+        $(".paper").remove();
+        $(".scissor").remove();});
+        $(".paper").click(function(){
+            UChoice="paper"
+            $(".rock").remove();
+            $(".scissor").remove();});
+        $(".scissor").click(function(){
+            UChoice="scissor"
+            $(".rock").remove();
+            $(".paper").remove();});
+    var count = 4;
+    function anim() {
+        if (count > 0) {
+            $("h1").text(count);
+            count--;
+            setTimeout(anim, 700);
+        }
+        else{
+            systermChoice();
+        }
+    }
+    anim();
+            
+}
+function systermChoice(){
+    var randno=Math.floor(Math.random()*3);
+    if (choices[randno]=="rock"){
+        $(".paperS").remove();
+        $(".scissorS").remove();
+    }else if (choices[randno]=="paper"){
+        $(".rockS").remove();
+        $(".scissorS").remove();
+    }else if (choices[randno]=="scissor"){
+        $(".rockS").remove();
+        $(".paperS").remove();
+    }
+    sChoice=choices[randno];
+    checkanswer()
+    
+}
+function checkanswer(){
+    if (UChoice==sChoice){
+        $("h1").text("DRAW");
+        $("button").val("draw");
+        $("body").addClass("draw");
+    }else if ((UChoice=="rock" && sChoice=="scissor") ){
+        $("h1").text("YOU WON");
+        $("body").addClass("you-won");
+        $("button").val("won");
+    }else if (UChoice=="paper" && (sChoice=="rock")){
+        $("h1").text("YOU WON");
+        $("body").addClass("you-won");
+        $("button").val("won");
+    }else if (UChoice=="scissor" && (sChoice=="rock")){
+        $("h1").text("YOU WON");
+        $("body").addClass("you-won");
+        $("button").val("won");
+    }else{
+        $("h1").text("YOU LOST");
+        $("body").addClass("game-over");
+        $("button").val("lost");
+    }
+}
+        </script>
+       
+<%- include('footer'); -%>
